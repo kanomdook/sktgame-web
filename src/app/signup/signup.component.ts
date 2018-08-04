@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Api } from '../providers/service/api';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-signup',
@@ -12,13 +13,13 @@ export class SignupComponent implements OnInit {
         email: '',
         password: '',
         province: '',
-        opt: ''
+        district: ''
     };
     schoolList: Array<any> = [];
     provinces: Array<any> = [];
     opt: Array<any> = [];
 
-    constructor(public api: Api) {
+    constructor(public api: Api, public router: Router) {
 
     }
 
@@ -28,7 +29,7 @@ export class SignupComponent implements OnInit {
 
     filterProvince(e) {
         this.opt = [];
-        this.data.opt = '';
+        this.data.district = '';
         let opts: Array<any> = [];
         opts = this.schoolList.filter(el => {
             return e === el.province;
@@ -60,6 +61,18 @@ export class SignupComponent implements OnInit {
             console.log(res);
         } catch (error) {
             console.log(error);
+        }
+    }
+
+    async register() {
+        try {
+            const res: any = await this.api.post('/user/signup', this.data);
+            alert('สมัครสมาชิกสำเร็จ');
+            alert(JSON.stringify(res.data));
+            this.router.navigate(['/signin']);
+        } catch (error) {
+            console.log(error);
+            alert('มีผู้ใช้นี้ในระบบแล้ว หรือ อีเมลถูกใช้ไปแล้ว');
         }
     }
 }

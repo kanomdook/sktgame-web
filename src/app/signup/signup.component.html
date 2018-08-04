@@ -26,15 +26,14 @@
 
                             <div class="form-group">
                                 <label>อปท.</label>
-                                <select class="form-control" name="opt" [(ngModel)]="data.opt" [disabled]="!data.province">
+                                <select class="form-control" name="district" [(ngModel)]="data.district" [disabled]="!data.province">
                                     <option value="">เลือก อปท.</option>
                                     <option value="{{item}}" *ngFor="let item of opt">{{item}}</option>
                                 </select>
                             </div>
 
 
-                            <!-- <button class="btn btn-danger btn-block btn-round" [disabled]="!(data.name && data.email && data.password && data.province && data.opt)">ลงทะเบียน</button> -->
-                            <button class="btn btn-danger btn-block btn-round">ลงทะเบียน</button>
+                            <button class="btn btn-danger btn-block btn-round" [disabled]="!(data.name && data.email && data.password && data.province && data.district)" (click)="register()">ลงทะเบียน</button>
                         </form>
                     </div>
                 </div>
