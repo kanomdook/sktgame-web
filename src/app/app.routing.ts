@@ -4,10 +4,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
 import { SignupComponent } from './signup/signup.component';
+import { SigninComponent } from './signin/signin.component';
 
 const routes: Routes = [
+  { path: 'signin', component: SigninComponent },
   { path: 'signup', component: SignupComponent },
-  { path: '', redirectTo: 'signup', pathMatch: 'full' }
+  { path: '', redirectTo: 'signin', pathMatch: 'full' }
 ];
 
 @NgModule({
