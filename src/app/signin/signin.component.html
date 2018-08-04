@@ -14,7 +14,7 @@
                             <label>รหัสผ่าน</label>
                             <input type="password" name="password" class="form-control" [(ngModel)]="data.password" placeholder="รหัสผ่าน">
 
-                            <button class="btn btn-danger btn-block btn-round">เข้าสู่ระบบ</button>
+                            <button class="btn btn-danger btn-block btn-round" [disabled]="!(data.email && data.password)" (click)="login()">เข้าสู่ระบบ</button>
                         </form>
                     </div>
                 </div>
