@@ -18,15 +18,17 @@
 
                             <div class="form-group">
                                 <label>จังหวัด</label>
-                                <select class="form-control" name="province" [(ngModel)]="data.province">
+                                <select class="form-control" name="province" [(ngModel)]="data.province" (ngModelChange)="filterProvince($event)">
                                     <option value="">เลือกจังหวัด</option>
+                                    <option value="{{province}}" *ngFor="let province of provinces">{{province}}</option>
                                 </select>
                             </div>
 
                             <div class="form-group">
                                 <label>อปท.</label>
-                                <select class="form-control" name="opt" [(ngModel)]="data.opt">
+                                <select class="form-control" name="opt" [(ngModel)]="data.opt" [disabled]="!data.province">
                                     <option value="">เลือก อปท.</option>
+                                    <option value="{{item}}" *ngFor="let item of opt">{{item}}</option>
                                 </select>
                             </div>
 
