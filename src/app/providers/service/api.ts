@@ -3,7 +3,8 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class Api {
-  url: any = 'http://localhost:3000/api'; // DEV
+  // url: any = 'http://localhost:3000/api'; // DEV
+  url: any = 'https://sktgame-service.herokuapp.com/api'; // Master
 
   constructor(public http: HttpClient) {
 
