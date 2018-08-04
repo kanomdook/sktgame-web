@@ -1,39 +1,42 @@
 <div class="wrapper">
     <div class="page-header" style="background-image: url('../assets/img/login-image.jpg');">
         <div class="filter"></div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 col-sm-6 mr-auto ml-auto">
-                        <div class="card card-register">
-                            <h3 class="title">Welcome</h3>
-                            <div class="social-line text-center">
-                                <a href="#pablo" class="btn btn-neutral btn-facebook btn-just-icon">
-                                    <i class="fa fa-facebook-square"></i>
-                                </a>
-                                <a href="#pablo" class="btn btn-neutral btn-google btn-just-icon">
-                                    <i class="fa fa-google-plus"></i>
-                                </a>
-                                <a href="#pablo" class="btn btn-neutral btn-twitter btn-just-icon">
-                                    <i class="fa fa-twitter"></i>
-                                </a>
-                            </div>
-                            <form class="register-form">
-                                <label>Email</label>
-                                <input type="text" class="form-control" placeholder="Email">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-sm-6 mr-auto ml-auto">
+                    <div class="card card-register">
+                        <h3 class="title">ลงทะเบียน</h3>
+                        <form class="register-form">
+                            <label>ชื่อ - นามสกุล</label>
+                            <input type="text" name="name" class="form-control" [(ngModel)]="data.name" placeholder="ชื่อ - นามสกุล">
 
-                                <label>Password</label>
-                                <input type="password" class="form-control" placeholder="Password">
-                                <button class="btn btn-danger btn-block btn-round">Register</button>
-                            </form>
-                            <div class="forgot">
-                                <a href="#" class="btn btn-link btn-danger">Forgot password?</a>
+                            <label>อีเมล</label>
+                            <input type="email" name="email" class="form-control" [(ngModel)]="data.email" placeholder="อีเมล">
+
+                            <label>รหัสผ่าน</label>
+                            <input type="password" name="password" class="form-control" [(ngModel)]="data.password" placeholder="รหัสผ่าน">
+
+                            <div class="form-group">
+                                <label>จังหวัด</label>
+                                <select class="form-control" name="province" [(ngModel)]="data.province">
+                                    <option value="">เลือกจังหวัด</option>
+                                </select>
                             </div>
-                        </div>
+
+                            <div class="form-group">
+                                <label>อปท.</label>
+                                <select class="form-control" name="opt" [(ngModel)]="data.opt">
+                                    <option value="">เลือก อปท.</option>
+                                </select>
+                            </div>
+
+
+                            <!-- <button class="btn btn-danger btn-block btn-round" [disabled]="!(data.name && data.email && data.password && data.province && data.opt)">ลงทะเบียน</button> -->
+                            <button class="btn btn-danger btn-block btn-round">ลงทะเบียน</button>
+                        </form>
                     </div>
                 </div>
-                <div class="footer register-footer text-center">
-                    <h6>&copy;{{test | date: 'yyyy'}}, made with <i class="fa fa-heart heart"></i> by Creative Tim</h6>
-                </div>
             </div>
+        </div>
     </div>
 </div>
