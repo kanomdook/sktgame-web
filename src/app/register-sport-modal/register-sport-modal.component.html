@@ -4,11 +4,29 @@
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
-<div class="modal-body"> Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated
-  they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows
-  by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of
-  sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic
-  life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.
+<div class="modal-body">
+  <form class="register-form">
+    <div class="form-group">
+      <label>วัน-เดือน-ปีเกิด</label>
+      <div class="input-group date">
+        <input class="form-control" placeholder="dd-mm-yyyy" name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()">
+        <span class="input-group-addon">
+          <span class="glyphicon glyphicon-calendar">
+            <i class="fa fa-calendar" aria-hidden="true"></i>
+          </span>
+        </span>
+      </div>
+    </div>
+
+    <label class="mgt">อายุ</label>
+    <input type="text" name="name" class="form-control" [(ngModel)]="age" placeholder="21" [disabled]="true">
+    <label class="mgt">น้ำหนัก</label>
+    <input type="text" name="name" class="form-control" [(ngModel)]="weight" placeholder="น้ำหนัก">
+    <label class="mgt">ส่วนสูง</label>
+    <input type="text" name="name" class="form-control" [(ngModel)]="tall" placeholder="ส่วนสูง">
+    <label class="mgt">จังหวัด</label>
+    <input type="text" name="name" class="form-control" [(ngModel)]="province" placeholder="จังหวัด">
+  </form>
 </div>
 <div class="modal-footer">
   <div class="left-side">
