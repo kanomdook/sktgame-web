@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Api } from '../providers/service/api';
 import { AuthService } from '../providers/auth/auth-service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { RegisterSportModalComponent } from '../register-sport-modal/register-sport-modal.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,12 +18,16 @@ export class DashboardComponent implements OnInit {
   sportsBinding: Array<any> = [];
   dataLength: any = 0;
 
-  constructor(public api: Api, public auth: AuthService) {
+  constructor(public api: Api, public auth: AuthService, public modalService: NgbModal) {
     this.auth.canActive();
   }
 
   ngOnInit() {
     this.getSports();
+  }
+
+  openModal() {
+    this.modalService.open(RegisterSportModalComponent);
   }
 
   data() {

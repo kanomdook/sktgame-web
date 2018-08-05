@@ -18,6 +18,7 @@ import { Api } from './providers/service/api';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthService } from './providers/auth/auth-service';
+import { RegisterSportModalComponent } from './register-sport-modal/register-sport-modal.component';
 
 @NgModule({
   declarations: [
@@ -28,8 +29,10 @@ import { AuthService } from './providers/auth/auth-service';
     ProfileComponent,
     NavbarComponent,
     FooterComponent,
-    DashboardComponent
+    DashboardComponent,
+    RegisterSportModalComponent
   ],
+  entryComponents: [RegisterSportModalComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
