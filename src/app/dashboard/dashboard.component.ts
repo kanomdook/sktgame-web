@@ -12,6 +12,7 @@ export class DashboardComponent implements OnInit {
   keyword: any = '';
   sportList: Array<any> = [];
   sports: Array<any> = [];
+  sportsBinding: Array<any> = [];
   dataLength: any = 0;
 
   constructor(public api: Api) { }
@@ -22,7 +23,13 @@ export class DashboardComponent implements OnInit {
 
   data() {
     setTimeout(() => {
-      console.log(this.page);
+      const sports: Array<any> = [];
+      for (let i = (this.page - 1) * 10; i < this.sports.length; i++) {
+        if (sports.length < 10) {
+          sports.push(this.sports[i]);
+        }
+      }
+      this.sportsBinding = sports;
     }, 500);
   }
 
@@ -30,15 +37,16 @@ export class DashboardComponent implements OnInit {
     try {
       const res: any = await this.api.get('/sports');
       this.sportList = res.data;
-      this.dataLength = this.sportList.length;
       this.sports = res.data;
-      console.log(res);
+      this.dataLength = this.sports.length;
+      this.data();
     } catch (error) {
       console.log(error);
     }
   }
 
   changeSportType(e) {
+    this.page = 1;
     if (e) {
       const sports = this.sportList.filter(el => {
         return el.sportType === e;
@@ -47,9 +55,12 @@ export class DashboardComponent implements OnInit {
     } else {
       this.sports = this.sportList;
     }
+    this.dataLength = this.sports.length;
+    this.data();
   }
 
   search(e) {
+    this.page = 1;
     this.sportType = '';
     if (e) {
       const sports = this.sportList.filter(el => {
@@ -62,6 +73,8 @@ export class DashboardComponent implements OnInit {
     } else {
       this.sports = this.sportList;
     }
+    this.dataLength = this.sports.length;
+    this.data();
   }
 
 }
