@@ -7,10 +7,12 @@ import { Api } from '../providers/service/api';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  page = 1;
   sportType: any = '';
   keyword: any = '';
   sportList: Array<any> = [];
   sports: Array<any> = [];
+  dataLength: any = 0;
 
   constructor(public api: Api) { }
 
@@ -18,10 +20,17 @@ export class DashboardComponent implements OnInit {
     this.getSports();
   }
 
+  data() {
+    setTimeout(() => {
+      console.log(this.page);
+    }, 500);
+  }
+
   async getSports() {
     try {
       const res: any = await this.api.get('/sports');
       this.sportList = res.data;
+      this.dataLength = this.sportList.length;
       this.sports = res.data;
       console.log(res);
     } catch (error) {

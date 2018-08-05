@@ -10,7 +10,7 @@
             <select class="form-control" name="sportType" [(ngModel)]="sportType" (ngModelChange)="changeSportType($event)">
               <option value="">ทั้งหมด</option>
               <option value="กีฬา">กีฬา</option>
-              <option value="กีฑา">กีฑา</option>
+              <option value="กีฑา">กรีฑา</option>
             </select>
           </div>
         </div>
@@ -48,6 +48,44 @@
                 </button>
                 <button class="btn btn-success btn-link btn-sm" ngbtooltip="Edit Profile" type="button">
                   <i class="fa fa-file-text-o" aria-hidden="true"></i> รายละเอียด
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="row" *ngIf="dataLength > 0">
+        <div class="col-md-7"></div>
+        <div class="col-md-5">
+          <ngb-pagination [collectionSize]="dataLength" [(page)]="page" [maxSize]="3" [rotate]="true" (click)="data()"></ngb-pagination>
+        </div>
+      </div>
+
+      <h4 class="title">
+        <small>รายการที่ท่านเข้าร่วมแข่งขัน</small>
+      </h4>
+
+      <div class="table-responsive top">
+        <table class="table">
+          <thead>
+            <tr>
+              <th class="text-center">ลำดับ</th>
+              <th>ประเภทกีฬา</th>
+              <th>ประเภทการแข่งขัน</th>
+              <th>อายุ</th>
+              <th class="text-right">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="ng-star-inserted" *ngFor="let item of [1,2,3];let i = index">
+              <td class="text-center">{{i+1}}</td>
+              <td>กีฬา</td>
+              <td>เปตอง Shooting ได้ไม่เกิน 1 คน</td>
+              <td>18 ปี</td>
+              <td class="td-actions text-right">
+                <button class="btn btn-success btn-link btn-sm" ngbtooltip="Edit Profile" type="button">
+                  <i class="fa fa-file-text-o" aria-hidden="true"></i> ผลการแข่งขัน
                 </button>
               </td>
             </tr>
