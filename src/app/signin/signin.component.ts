@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Api } from '../providers/service/api';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-signin',
@@ -12,15 +13,14 @@ export class SigninComponent implements OnInit {
         password: ''
     };
 
-    constructor(public api: Api) { }
+    constructor(public api: Api, public router: Router) { }
 
     ngOnInit() { }
 
     async login() {
         try {
             const res: any = await this.api.post('/user/signin', this.data);
-            alert('เข้าสู่ระบบสำเร็จ');
-            alert(JSON.stringify(res.data));
+            this.router.navigate(['/dashboard']);
         } catch (error) {
             this.data = {
                 email: '',
