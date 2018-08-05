@@ -9,7 +9,7 @@
     <div class="form-group">
       <label>วัน-เดือน-ปีเกิด</label>
       <div class="input-group date">
-        <input class="form-control" placeholder="dd-mm-yyyy" name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()">
+        <input class="form-control" placeholder="dd-mm-yyyy" name="dp" ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()">
         <span class="input-group-addon">
           <span class="glyphicon glyphicon-calendar">
             <i class="fa fa-calendar" aria-hidden="true"></i>
@@ -19,13 +19,13 @@
     </div>
 
     <label class="mgt">อายุ</label>
-    <input type="text" name="name" class="form-control" [(ngModel)]="age" placeholder="21" [disabled]="true">
+    <input type="text" name="name" class="form-control" placeholder="21" [disabled]="true">
     <label class="mgt">น้ำหนัก</label>
-    <input type="text" name="name" class="form-control" [(ngModel)]="weight" placeholder="น้ำหนัก">
+    <input type="text" name="name" class="form-control" placeholder="น้ำหนัก">
     <label class="mgt">ส่วนสูง</label>
-    <input type="text" name="name" class="form-control" [(ngModel)]="tall" placeholder="ส่วนสูง">
+    <input type="text" name="name" class="form-control" placeholder="ส่วนสูง">
     <label class="mgt">จังหวัด</label>
-    <input type="text" name="name" class="form-control" [(ngModel)]="province" placeholder="จังหวัด">
+    <input type="text" name="name" class="form-control" placeholder="จังหวัด">
   </form>
 </div>
 <div class="modal-footer">
