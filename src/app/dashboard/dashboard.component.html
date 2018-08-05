@@ -38,7 +38,7 @@
           </thead>
           <tbody>
             <tr class="ng-star-inserted" *ngFor="let sport of sportsBinding;let i = index">
-              <td class="text-center">{{i+1}}</td>
+              <td class="text-center">{{(page - 1)*10 + (i+1)}}</td>
               <td>{{sport.sportType}}</td>
               <td>{{sport.name}}</td>
               <td>{{sport.age}}</td>
