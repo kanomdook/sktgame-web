@@ -8,6 +8,7 @@ import { Api } from '../providers/service/api';
 })
 export class DashboardComponent implements OnInit {
   sportType: any = '';
+  keyword: any = '';
   sportList: Array<any> = [];
   sports: Array<any> = [];
 

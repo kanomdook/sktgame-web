@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg fixed-top bg-primary" color-on-scroll="500">
+<nav class="navbar navbar-expand-lg fixed-top bg-primary" color-on-scroll="500" id="my-nav">
     <div class="container">
         <div class="navbar-translate">
             <a class="navbar-brand" [routerLink]="['/']">
@@ -25,19 +25,19 @@
 
             <ul class="navbar-nav ml-auto" id="authsuccess">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" [routerLink]="['/dashboard']">
                         <i class="nc-icon nc-badge" aria-hidden="true"></i>&nbsp;สมัครเข้าแข่งขัน</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" [routerLink]="['/dashboard']">
                         <i class="nc-icon nc-chart-bar-32" aria-hidden="true"></i>&nbsp;รายงานการแข่งขัน</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" [routerLink]="['/dashboard']">
                         <i class="nc-icon nc-single-02" aria-hidden="true"></i>&nbsp;ข้อมูลส่วนตัว</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="#" (click)="logout()">
                         <i class="nc-icon nc-button-power" aria-hidden="true"></i>&nbsp;ออกจากระบบ</a>
                 </li>
             </ul>

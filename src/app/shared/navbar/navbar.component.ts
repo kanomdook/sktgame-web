@@ -14,10 +14,25 @@ export class NavbarComponent implements OnInit {
     constructor(public location: Location, private element: ElementRef, private router: Router) {
         this.sidebarVisible = false;
         router.events.subscribe((val) => {
-            const title = this.location.prepareExternalUrl(this.location.path());
-            if (title !== '/signin' || title !== '/signin') {
+            const title: any = this.location.prepareExternalUrl(this.location.path());
+            if (title !== '/signin' && title !== '/signup') {
                 const auth = document.getElementById('auth');
                 auth.setAttribute('style', 'display:none;');
+
+                const authss = document.getElementById('authsuccess');
+                authss.setAttribute('style', 'display:inherit;');
+
+                const ee = document.getElementById('my-nav');
+                ee.classList.remove('navbar-transparent');
+            } else {
+                const auth = document.getElementById('auth');
+                auth.setAttribute('style', 'display:inherit;');
+
+                const authss = document.getElementById('authsuccess');
+                authss.setAttribute('style', 'display:none;');
+
+                const ee = document.getElementById('my-nav');
+                ee.classList.add('navbar-transparent');
             }
         });
     }
@@ -73,5 +88,10 @@ export class NavbarComponent implements OnInit {
         else {
             return false;
         }
+    }
+
+    logout() {
+        window.localStorage.removeItem('user');
+        this.router.navigate(['/']);
     }
 }
