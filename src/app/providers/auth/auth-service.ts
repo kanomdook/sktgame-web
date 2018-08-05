@@ -11,7 +11,7 @@ export class AuthService {
 
     canActive() {
         const user: any = window.localStorage.getItem('user') ? JSON.parse(window.localStorage.getItem('user')) : null;
-        if (user.token) {
+        if (user && user.token) {
             return true;
         } else {
             this.router.navigate(['/']);

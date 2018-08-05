@@ -51,6 +51,11 @@
                 </button>
               </td>
             </tr>
+            <tr *ngIf="dataLength <= 0">
+              <td>
+                ไม่พบข้อมูล
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>

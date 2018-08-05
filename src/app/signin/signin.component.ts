@@ -20,6 +20,7 @@ export class SigninComponent implements OnInit {
     async login() {
         try {
             const res: any = await this.api.post('/user/signin', this.data);
+            window.localStorage.setItem('user', JSON.stringify(res.data));
             this.router.navigate(['/dashboard']);
         } catch (error) {
             this.data = {
