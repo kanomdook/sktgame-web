@@ -17,6 +17,7 @@ import { SigninComponent } from './signin/signin.component';
 import { Api } from './providers/service/api';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AuthService } from './providers/auth/auth-service';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     AppRoutingModule,
     HomeModule
   ],
-  providers: [Api],
+  providers: [Api, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

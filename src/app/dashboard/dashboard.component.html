@@ -1,102 +1,59 @@
-<div class="section section-buttons">
+<div class="section">
   <div class="container">
-      <div class="tim-title">
-          <h2>Basic Components</h2>
-      </div>
-      <div id="buttons">
-          <div class="tim-title">
-              <h3>Buttons
-                  <br/>
-                  <small>Pick your style</small>
-              </h3>
-          </div>
-          <div class="row">
-              <div class="col-md-8">
-                  <button type="button" class="btn btn-danger">Default</button>
-                  <button type="button" class="btn btn-danger btn-round">Round</button>
-                  <button type="button" class="btn btn-danger btn-round"><i class="fa fa-heart"></i> With Icon</button>
-                  <button type="button" class="btn btn-danger btn-just-icon"><i class="fa fa-heart"></i></button>
-                  <button type="button" class="btn btn-danger btn-link">Simple</button>
-              </div>
-          </div>
-          <div class="tim-title">
-              <h3><small>Pick your size</small></h3>
-          </div>
-          <div class="row">
-              <div class="col-md-8">
-                  <button type="button" class="btn btn-outline-danger btn-sm">Small</button>
-                  <button type="button" class="btn btn-outline-danger">Regular</button>
-                  <button type="button" class="btn btn-outline-danger btn-lg">Large</button>
-              </div>
-          </div>
-          <div class="tim-title">
-              <h3><small>Pick your color</small></h3>
-          </div>
-          <div class="row">
-              <div class="col-md-8">
-                  <button type="button" class="btn btn-outline-default btn-round">Default</button>
-                  <button type="button" class="btn btn-outline-primary btn-round">Primary</button>
-                  <button type="button" class="btn btn-outline-info btn-round">Info</button>
-                  <button type="button" class="btn btn-outline-success btn-round">Success</button>
-                  <button type="button" class="btn btn-outline-warning btn-round">Warning</button>
-                  <button type="button" class="btn btn-outline-danger btn-round">Danger</button>
-              </div>
-          </div>
-          <br/>
-          <div class="row">
-              <div class="col-md-8">
-                  <button type="button" class="btn btn-default btn-round">Default</button>
-                  <button type="button" class="btn btn-primary btn-round">Primary</button>
-                  <button type="button" class="btn btn-info btn-round">Info</button>
-                  <button type="button" class="btn btn-success btn-round">Success</button>
-                  <button type="button" class="btn btn-warning btn-round">Warning</button>
-                  <button type="button" class="btn btn-danger btn-round">Danger</button>
-              </div>
-          </div>
-      </div>
-          <br/>
-      <div class="tim-title">
-          <h3>Links</h3>
-      </div>
+    <div class="col-md-12 ml-auto mr-auto">
+      <h4 class="title">
+        <small>รายการประเภทกีฬาที่เข้าร่วมแข่งขัน</small>
+      </h4>
       <div class="row">
-          <div class="col-md-8">
-              <a href="#0" class="btn btn-link btn-default">Default</a>
-              <a href="#0" class="btn btn-link btn-primary">Primary</a>
-              <a href="#0" class="btn btn-link btn-success">Success</a>
-              <a href="#0" class="btn btn-link btn-info">Info</a>
-              <a href="#0" class="btn btn-link btn-warning">Warning</a>
-              <a href="#0" class="btn btn-link btn-danger">Danger</a>
-              <a href="#0" class="btn btn-link btn-neutral">Neutral</a>
+        <div class="col-md-3">
+          <div class="form-group">
+            <select class="form-control" name="sportType" [(ngModel)]="sportType" (ngModelChange)="changeSportType($event)">
+              <option value="">ทั้งหมด</option>
+              <option value="กีฬา">กีฬา</option>
+              <option value="กีฑา">กีฑา</option>
+            </select>
           </div>
+        </div>
+        <div class="col-md-5"></div>
+        <div class="col-md-4">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="ค้นหา" aria-describedby="basic-addon1" [(ngModel)]="keyword" (ngModelChange)="search($event)">
+            <span class="input-group-addon" id="basic-addon1">
+              <i class="fa fa-search" aria-hidden="true"></i>
+            </span>
+          </div>
+        </div>
       </div>
-      <br/>
-      <div class="tim-title">
-          <h3>Inputs</h3>
+
+      <div class="table-responsive top">
+        <table class="table">
+          <thead>
+            <tr>
+              <th class="text-center">ลำดับ</th>
+              <th>ประเภทกีฬา</th>
+              <th>ประเภทการแข่งขัน</th>
+              <th>อายุ</th>
+              <th class="text-right">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="ng-star-inserted" *ngFor="let sport of sports;let i = index">
+              <td class="text-center">{{i+1}}</td>
+              <td>{{sport.sportType}}</td>
+              <td>{{sport.name}}</td>
+              <td>{{sport.age}}</td>
+              <td class="td-actions text-right">
+                <button class="btn btn-info btn-link btn-sm" ngbtooltip="View Profile" type="button">
+                  <i class="fa fa-edit"></i> สมัคร
+                </button>
+                <button class="btn btn-success btn-link btn-sm" ngbtooltip="Edit Profile" type="button">
+                  <i class="fa fa-file-text-o" aria-hidden="true"></i> รายละเอียด
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <div class="row">
-          <div class="col-sm-3">
-              <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Default">
-              </div>
-          </div>
-          <div class="col-sm-3">
-              <div class="form-group has-success">
-                  <input type="text" class="form-control form-control-success" id="inputSuccess1" value="Success">
-              </div>
-          </div>
-          <div class="col-sm-3">
-              <div class="form-group has-danger">
-                  <input type="text" class="form-control form-control-danger" id="inputDanger1" value="Error">
-                  <div class="form-control-feedback">Sorry, that username's taken. Try another?</div>
-              </div>
-          </div>
-          <div class="col-sm-3">
-              <div class="input-group">
-                  <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
-                  <span class="input-group-addon" id="basic-addon1"><i class="fa fa-group" aria-hidden="true"></i></span>
-              </div>
-          </div>
-      </div>
-      <br/>
+    </div>
   </div>
 </div>
