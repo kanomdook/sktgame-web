@@ -22,7 +22,7 @@
                                             <input type="text" name="name" class="form-control" [(ngModel)]="data.name" placeholder="ชื่อ - นามสกุล">
                                             <br>
                                             <label>อีเมล</label>
-                                            <input type="email" name="email" class="form-control" [(ngModel)]="data.email" placeholder="อีเมล">
+                                            <input type="email" name="email" class="form-control" [(ngModel)]="data.email" placeholder="อีเมล" [disabled]="true">
                                             <br>
                                             <label>รหัสผ่าน</label>
                                             <input type="password" name="password" class="form-control" [(ngModel)]="data.password" placeholder="รหัสผ่าน">
@@ -44,7 +44,8 @@
                                             <div class="form-group">
                                                 <label>วัน-เดือน-ปีเกิด</label>
                                                 <div class="input-group date">
-                                                    <input class="form-control" placeholder="dd-mm-yyyy" name="dp" ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()">
+                                                    <input class="form-control" [(ngModel)]="data.birthday" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #d="ngbDatepicker"
+                                                        (click)="d.toggle()">
                                                     <span class="input-group-addon">
                                                         <span class="glyphicon glyphicon-calendar">
                                                             <i class="fa fa-calendar" aria-hidden="true"></i>
@@ -53,14 +54,14 @@
                                                 </div>
                                             </div>
 
-                                            <label class="mgt">อายุ</label>
-                                            <input type="text" name="name" class="form-control" placeholder="21" [disabled]="true">
+                                            <label class="mgt">อายุ (ปี)</label>
+                                            <input type="text" name="age" class="form-control" placeholder="21" [(ngModel)]="data.age" [disabled]="true">
                                             <br>
-                                            <label class="mgt">น้ำหนัก</label>
-                                            <input type="text" name="name" class="form-control" placeholder="น้ำหนัก">
+                                            <label class="mgt">น้ำหนัก (กิโลกรัม)</label>
+                                            <input type="text" name="weigth" class="form-control" [(ngModel)]="data.weight" placeholder="น้ำหนัก">
                                             <br>
-                                            <label class="mgt">ส่วนสูง</label>
-                                            <input type="text" name="name" class="form-control" placeholder="ส่วนสูง">
+                                            <label class="mgt">ส่วนสูง (เซนติเมตร)</label>
+                                            <input type="text" name="height" class="form-control" [(ngModel)]="data.height" placeholder="ส่วนสูง">
                                             <div class="btn-top">
                                                 <button type="button" class="btn btn-danger btn-round">
                                                     <i class="fa fa-check"></i> บันทึกข้อมูล</button>

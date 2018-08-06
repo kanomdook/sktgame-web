@@ -18,10 +18,29 @@ export class ProfileComponent implements OnInit {
     schoolList: Array<any> = [];
     provinces: Array<any> = [];
     opt: Array<any> = [];
-    constructor(public api: Api) { }
+    constructor(public api: Api) {
+
+    }
 
     ngOnInit() {
         this.getSchools();
+    }
+
+    initFilter(e) {
+        this.opt = [];
+        let opts: Array<any> = [];
+        opts = this.schoolList.filter(el => {
+            return e === el.province;
+        });
+
+        const optList: Array<any> = [];
+        opts.forEach(el => {
+            if (optList.indexOf(el.district) < 0) {
+                optList.push(el.district);
+            }
+        });
+
+        this.opt = optList;
     }
 
     filterProvince(e) {
@@ -55,10 +74,16 @@ export class ProfileComponent implements OnInit {
                 }
             });
             this.provinces = provinces;
-            console.log(res);
+            this.data = JSON.parse(window.localStorage.getItem('user'));
+            this.initFilter(this.data.province);
+            console.log(this.data);
         } catch (error) {
             console.log(error);
         }
+    }
+
+    calAge() {
+
     }
 
 }
