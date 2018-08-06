@@ -75,16 +75,34 @@ export class ProfileComponent implements OnInit {
             });
             this.provinces = provinces;
             this.data = JSON.parse(window.localStorage.getItem('user'));
+            this.data.password = '';
             this.initFilter(this.data.province);
-            this.data.birthday = '2018-08-02';
-            console.log(this.data);
         } catch (error) {
             console.log(error);
         }
     }
 
-    calAge() {
+    calAge(e) {
+        const today1 = new Date();
+        const today = new Date(today1.getFullYear(), today1.getMonth(), today1.getDate());
+        const birthDate = new Date(e.year, e.month - 1, e.day);
+        let age = today.getFullYear() - birthDate.getFullYear();
+        const m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+        }
+        if (age <= 0) {
+            this.data.age = 0;
+            setTimeout(() => {
+                this.data.birthday = '';
+            }, 200);
+        } else {
+            this.data.age = age;
+        }
+    }
 
+    save() {
+        console.log(this.data.birthday);
     }
 
 }
