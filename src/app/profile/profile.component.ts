@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Api } from '../providers/service/api';
 
 @Component({
@@ -8,6 +8,7 @@ import { Api } from '../providers/service/api';
 })
 
 export class ProfileComponent implements OnInit {
+    @ViewChild('profileImg') profileImg;
     data: any = {
         name: '',
         email: '',
@@ -20,12 +21,29 @@ export class ProfileComponent implements OnInit {
     provinces: Array<any> = [];
     opt: Array<any> = [];
     oldPassword: any = '';
+    profileImgModel: any;
+
     constructor(public api: Api) {
 
     }
 
     ngOnInit() {
         this.getSchools();
+    }
+
+    uploadImg() {
+        this.profileImg.nativeElement.click();
+    }
+
+    onProfileImgChange(e) {
+        const fileBrowser = this.profileImg.nativeElement;
+        const reader = new FileReader();
+        reader.readAsDataURL(fileBrowser.files.length > 0 ? fileBrowser.files[0] : null);
+        if (fileBrowser.files.length > 0) {
+            reader.onload = () => {
+                const base64 = reader.result.replace(/\n/g, '');
+            };
+        }
     }
 
     initFilter(e) {

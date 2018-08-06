@@ -6,7 +6,8 @@
         <div class="container">
             <div class="owner">
                 <div class="avatar">
-                    <img src="../assets/img/user.png" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                    <img src="../assets/img/user.png" alt="Circle Image" class="img-circle img-no-padding img-responsive" (click)="uploadImg()">
+                    <input type="file" #profileImg accept="image/*" [(ngModel)]="profileImgModel" (change)="onProfileImgChange($event)" style="visibility: hidden;">
                 </div>
             </div>
             <br>
