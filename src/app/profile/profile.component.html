@@ -18,6 +18,29 @@
                                 <div class="row following" id="follows">
                                     <div class="col-md-6 ml-auto mr-auto">
                                         <form class="register-form fm">
+                                            <label>ชื่อ - นามสกุล</label>
+                                            <input type="text" name="name" class="form-control" [(ngModel)]="data.name" placeholder="ชื่อ - นามสกุล">
+                                            <br>
+                                            <label>อีเมล</label>
+                                            <input type="email" name="email" class="form-control" [(ngModel)]="data.email" placeholder="อีเมล">
+                                            <br>
+                                            <label>รหัสผ่าน</label>
+                                            <input type="password" name="password" class="form-control" [(ngModel)]="data.password" placeholder="รหัสผ่าน">
+                                            <br>
+                                            <div class="form-group">
+                                                <label>จังหวัด</label>
+                                                <select class="form-control" name="province" [(ngModel)]="data.province" (ngModelChange)="filterProvince($event)">
+                                                    <option value="">เลือกจังหวัด</option>
+                                                    <option value="{{province}}" *ngFor="let province of provinces">{{province}}</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>อปท.</label>
+                                                <select class="form-control" name="district" [(ngModel)]="data.district" [disabled]="!data.province">
+                                                    <option value="">เลือก อปท.</option>
+                                                    <option value="{{item}}" *ngFor="let item of opt">{{item}}</option>
+                                                </select>
+                                            </div>
                                             <div class="form-group">
                                                 <label>วัน-เดือน-ปีเกิด</label>
                                                 <div class="input-group date">
