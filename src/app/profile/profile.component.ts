@@ -12,6 +12,7 @@ export class ProfileComponent implements OnInit {
         name: '',
         email: '',
         password: '',
+        gender: '',
         province: '',
         district: ''
     };

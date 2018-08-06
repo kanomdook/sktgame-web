@@ -52,6 +52,16 @@
                                                 </select>
                                             </div>
                                             <div class="form-group">
+                                                <label>เพศ
+                                                    <span class="txt-red"> *</span>
+                                                </label>
+                                                <select class="form-control" name="gender" [(ngModel)]="data.gender">
+                                                    <option value="">เลือกเพศ</option>
+                                                    <option value="ชาย">ชาย</option>
+                                                    <option value="หญิง">หญิง</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
                                                 <label>วัน-เดือน-ปีเกิด
                                                     <span class="txt-red"> *</span>
                                                 </label>
@@ -81,7 +91,7 @@
                                             </label>
                                             <input type="text" name="height" class="form-control" [(ngModel)]="data.height" placeholder="ส่วนสูง">
                                             <div class="btn-top">
-                                                <button type="button" class="btn btn-danger btn-round" (click)="save()" [disabled]="!(data.name && data.email && data.password && data.province && data.district && data.birthday && data.age && data.weight && data.height)">
+                                                <button type="button" class="btn btn-danger btn-round" (click)="save()" [disabled]="!(data.name && data.email && data.password && data.province && data.district && data.gender && data.birthday && data.age && data.weight && data.height)">
                                                     <i class="fa fa-check"></i> บันทึกข้อมูล</button>
                                             </div>
                                         </form>
