@@ -75,7 +75,6 @@ export class ProfileComponent implements OnInit {
             });
             this.provinces = provinces;
             this.data = JSON.parse(window.localStorage.getItem('user'));
-            this.data.password = '';
             this.initFilter(this.data.province);
         } catch (error) {
             console.log(error);
