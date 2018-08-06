@@ -18,6 +18,7 @@ export class ProfileComponent implements OnInit {
     schoolList: Array<any> = [];
     provinces: Array<any> = [];
     opt: Array<any> = [];
+    oldPassword: any = '';
     constructor(public api: Api) {
 
     }
@@ -75,6 +76,7 @@ export class ProfileComponent implements OnInit {
             });
             this.provinces = provinces;
             this.data = JSON.parse(window.localStorage.getItem('user'));
+            this.oldPassword = this.data.password;
             this.initFilter(this.data.province);
         } catch (error) {
             console.log(error);
@@ -82,26 +84,38 @@ export class ProfileComponent implements OnInit {
     }
 
     calAge(e) {
-        const today1 = new Date();
-        const today = new Date(today1.getFullYear(), today1.getMonth(), today1.getDate());
-        const birthDate = new Date(e.year, e.month - 1, e.day);
-        let age = today.getFullYear() - birthDate.getFullYear();
-        const m = today.getMonth() - birthDate.getMonth();
-        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-            age--;
-        }
-        if (age <= 0) {
-            this.data.age = 0;
-            setTimeout(() => {
-                this.data.birthday = '';
-            }, 200);
-        } else {
-            this.data.age = age;
+        if (e) {
+            const today1 = new Date();
+            const today = new Date(today1.getFullYear(), today1.getMonth(), today1.getDate());
+            const birthDate = new Date(e.year, e.month - 1, e.day);
+            let age = today.getFullYear() - birthDate.getFullYear();
+            const m = today.getMonth() - birthDate.getMonth();
+            if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+                age--;
+            }
+            if (age <= 0) {
+                this.data.age = 0;
+                setTimeout(() => {
+                    this.data.birthday = '';
+                }, 200);
+            } else {
+                this.data.age = age;
+            }
         }
     }
 
-    save() {
-        console.log(this.data.birthday);
+    async save() {
+        try {
+            if (this.oldPassword !== this.data.password) {
+                this.data.changedPassword = true;
+            } else {
+                this.data.changedPassword = false;
+            }
+            const res: any = await this.api.put('/user/' + this.data._id, this.data);
+            window.localStorage.setItem('user', JSON.stringify(res.data));
+        } catch (error) {
+            console.log(error);
+        }
     }
 
 }
