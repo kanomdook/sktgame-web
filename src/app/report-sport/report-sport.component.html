@@ -1,0 +1,34 @@
+<div class="section">
+  <div class="container">
+    <div class="col-md-12 ml-auto mr-auto">
+      <h4 class="title">
+        <small>รายการที่ท่านเข้าร่วมแข่งขัน</small>
+      </h4>
+
+      <div class="table-responsive top">
+        <table class="table">
+          <thead>
+            <tr>
+              <th class="text-center">ลำดับ</th>
+              <th class="text-center">ประเภทกีฬา</th>
+              <th width="300">ประเภทการแข่งขัน</th>
+              <th width="250" class="text-center">อายุ</th>
+              <th class="text-center">เพศ</th>
+              <th class="text-center">ผลการแข่งขัน</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="ng-star-inserted" *ngFor="let item of [1,2,3];let i = index">
+              <td class="text-center">{{i+1}}</td>
+              <td class="text-center">กีฬา</td>
+              <td>เปตอง Shooting ได้ไม่เกิน 1 คน</td>
+              <td class="text-center">18 ปี</td>
+              <td class="text-center">ชาย/หญิง</td>
+              <td class="text-center"><span class="text-success">ชนะ</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

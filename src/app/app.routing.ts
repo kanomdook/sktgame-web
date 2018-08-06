@@ -7,11 +7,13 @@ import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ReportSportComponent } from './report-sport/report-sport.component';
 
 const routes: Routes = [
   { path: 'signin', component: SigninComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'profile', component: ProfileComponent },
+  { path: 'reportsport', component: ReportSportComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: '', redirectTo: 'signin', pathMatch: 'full' }
 ];

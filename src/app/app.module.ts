@@ -19,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthService } from './providers/auth/auth-service';
 import { RegisterSportModalComponent } from './register-sport-modal/register-sport-modal.component';
+import { ReportSportComponent } from './report-sport/report-sport.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { RegisterSportModalComponent } from './register-sport-modal/register-spo
     NavbarComponent,
     FooterComponent,
     DashboardComponent,
-    RegisterSportModalComponent
+    RegisterSportModalComponent,
+    ReportSportComponent
   ],
   entryComponents: [RegisterSportModalComponent],
   imports: [

@@ -30,21 +30,21 @@
           <thead>
             <tr>
               <th class="text-center">ลำดับ</th>
-              <th>ประเภทกีฬา</th>
+              <th class="text-center">ประเภทกีฬา</th>
               <th width="300">ประเภทการแข่งขัน</th>
-              <th width="250">อายุ</th>
-              <th>เพศ</th>
-              <th class="text-right">Actions</th>
+              <th width="250" class="text-center">อายุ</th>
+              <th class="text-center">เพศ</th>
+              <th class="text-center">Actions</th>
             </tr>
           </thead>
           <tbody>
             <tr class="ng-star-inserted" *ngFor="let sport of sportsBinding;let i = index">
               <td class="text-center">{{(page - 1)*10 + (i+1)}}</td>
-              <td>{{sport.sportType}}</td>
+              <td class="text-center">{{sport.sportType}}</td>
               <td>{{sport.name}}</td>
-              <td>{{sport.age}}</td>
-              <td>{{sport.gender}}</td>
-              <td class="td-actions text-right">
+              <td class="text-center">{{sport.age}}</td>
+              <td class="text-center">{{sport.gender}}</td>
+              <td class="td-actions text-center">
                 <button class="btn btn-info btn-link btn-sm" ngbtooltip="View Profile" type="button">
                   <i class="fa fa-edit"></i> สมัคร
                 </button>
@@ -67,39 +67,6 @@
         <div class="col-md-5">
           <ngb-pagination [collectionSize]="dataLength" [(page)]="page" [maxSize]="3" [rotate]="true" (click)="data()"></ngb-pagination>
         </div>
-      </div>
-
-      <h4 class="title">
-        <small>รายการที่ท่านเข้าร่วมแข่งขัน</small>
-      </h4>
-
-      <div class="table-responsive top">
-        <table class="table">
-          <thead>
-            <tr>
-              <th class="text-center">ลำดับ</th>
-              <th>ประเภทกีฬา</th>
-              <th width="300">ประเภทการแข่งขัน</th>
-              <th width="250">อายุ</th>
-              <th>เพศ</th>
-              <th class="text-right">Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="ng-star-inserted" *ngFor="let item of [1,2,3];let i = index">
-              <td class="text-center">{{i+1}}</td>
-              <td>กีฬา</td>
-              <td>เปตอง Shooting ได้ไม่เกิน 1 คน</td>
-              <td>18 ปี</td>
-              <td>ชาย/หญิง</td>
-              <td class="td-actions text-right">
-                <button class="btn btn-success btn-link btn-sm" ngbtooltip="Edit Profile" type="button">
-                  <i class="fa fa-file-text-o" aria-hidden="true"></i> ผลการแข่งขัน
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
       </div>
     </div>
   </div>
