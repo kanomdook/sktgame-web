@@ -76,6 +76,7 @@ export class ProfileComponent implements OnInit {
             this.provinces = provinces;
             this.data = JSON.parse(window.localStorage.getItem('user'));
             this.initFilter(this.data.province);
+            this.data.birthday = '2018-08-02';
             console.log(this.data);
         } catch (error) {
             console.log(error);

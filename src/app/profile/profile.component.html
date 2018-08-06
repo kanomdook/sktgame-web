@@ -18,31 +18,31 @@
                                 <div class="row following" id="follows">
                                     <div class="col-md-6 ml-auto mr-auto">
                                         <form class="register-form fm">
-                                            <label>ชื่อ - นามสกุล</label>
+                                            <label>ชื่อ - นามสกุล <span class="txt-red"> *</span></label>
                                             <input type="text" name="name" class="form-control" [(ngModel)]="data.name" placeholder="ชื่อ - นามสกุล">
                                             <br>
-                                            <label>อีเมล</label>
+                                            <label>อีเมล <span class="txt-red"> *</span></label>
                                             <input type="email" name="email" class="form-control" [(ngModel)]="data.email" placeholder="อีเมล" [disabled]="true">
                                             <br>
-                                            <label>รหัสผ่าน</label>
+                                            <label>รหัสผ่าน <span class="txt-red"> *</span></label>
                                             <input type="password" name="password" class="form-control" [(ngModel)]="data.password" placeholder="รหัสผ่าน">
                                             <br>
                                             <div class="form-group">
-                                                <label>จังหวัด</label>
+                                                <label>จังหวัด <span class="txt-red"> *</span></label>
                                                 <select class="form-control" name="province" [(ngModel)]="data.province" (ngModelChange)="filterProvince($event)">
                                                     <option value="">เลือกจังหวัด</option>
                                                     <option value="{{province}}" *ngFor="let province of provinces">{{province}}</option>
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <label>อปท.</label>
+                                                <label>อปท. <span class="txt-red"> *</span></label>
                                                 <select class="form-control" name="district" [(ngModel)]="data.district" [disabled]="!data.province">
                                                     <option value="">เลือก อปท.</option>
                                                     <option value="{{item}}" *ngFor="let item of opt">{{item}}</option>
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <label>วัน-เดือน-ปีเกิด</label>
+                                                <label>วัน-เดือน-ปีเกิด <span class="txt-red"> *</span></label>
                                                 <div class="input-group date">
                                                     <input class="form-control" [(ngModel)]="data.birthday" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #d="ngbDatepicker"
                                                         (click)="d.toggle()">
@@ -54,13 +54,13 @@
                                                 </div>
                                             </div>
 
-                                            <label class="mgt">อายุ (ปี)</label>
+                                            <label class="mgt">อายุ (ปี) <span class="txt-red"> *</span></label>
                                             <input type="text" name="age" class="form-control" placeholder="21" [(ngModel)]="data.age" [disabled]="true">
                                             <br>
-                                            <label class="mgt">น้ำหนัก (กิโลกรัม)</label>
+                                            <label class="mgt">น้ำหนัก (กิโลกรัม) <span class="txt-red"> *</span></label>
                                             <input type="text" name="weigth" class="form-control" [(ngModel)]="data.weight" placeholder="น้ำหนัก">
                                             <br>
-                                            <label class="mgt">ส่วนสูง (เซนติเมตร)</label>
+                                            <label class="mgt">ส่วนสูง (เซนติเมตร) <span class="txt-red"> *</span></label>
                                             <input type="text" name="height" class="form-control" [(ngModel)]="data.height" placeholder="ส่วนสูง">
                                             <div class="btn-top">
                                                 <button type="button" class="btn btn-danger btn-round">

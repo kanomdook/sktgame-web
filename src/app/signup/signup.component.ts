@@ -68,7 +68,6 @@ export class SignupComponent implements OnInit {
         try {
             const res: any = await this.api.post('/user/signup', this.data);
             alert('สมัครสมาชิกสำเร็จ');
-            alert(JSON.stringify(res.data));
             this.router.navigate(['/signin']);
         } catch (error) {
             console.log(error);
