@@ -39,7 +39,21 @@ export class DashboardComponent implements OnInit {
         }
       }
       this.sportsBinding = sports;
+      this.canRegisterSport();
     }, 500);
+  }
+
+  canRegisterSport() {
+    const user: any = JSON.parse(window.localStorage.getItem('user'));
+    this.sportsBinding.forEach(el => {
+      let age: any = el.age.split(' ')[0];
+      age = parseInt(age, 0);
+      if (age === user.age || el.age === '-') {
+        el.canRegis = true;
+      } else {
+        el.canRegis = false;
+      }
+    });
   }
 
   async getSports() {
