@@ -45,7 +45,7 @@
               <td class="text-center">{{sport.age}}</td>
               <td class="text-center">{{sport.gender}}</td>
               <td class="td-actions text-center">
-                <button class="btn btn-info btn-link btn-sm" ngbtooltip="View Profile" type="button" *ngIf="sport.canRegis">
+                <button class="btn btn-info btn-link btn-sm" ngbtooltip="View Profile" type="button" *ngIf="sport.canRegis" (click)="registerSport(sport)">
                   <i class="fa fa-edit"></i> สมัคร
                 </button>
                 <button class="btn btn-success btn-link btn-sm" ngbtooltip="Edit Profile" type="button">

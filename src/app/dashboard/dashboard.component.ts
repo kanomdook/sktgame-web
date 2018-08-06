@@ -56,6 +56,35 @@ export class DashboardComponent implements OnInit {
     });
   }
 
+  registerSport(sport) {
+    const user: any = JSON.parse(window.localStorage.getItem('user'));
+    if (user.birthday.year <= 0) {
+      alert('กรุณาเพิ่มข้อมูล วัน เดือน ปี เกิด ที่ข้อมูลส่วนตัว');
+    } else {
+      if (!user.citizenImg.id) {
+        alert('กรุณาเพิ่มข้อมูล ภาพถ่ายบัตรประชาชน ที่ข้อมูลส่วนตัว');
+      } else {
+        if (!user.profileImg.id) {
+          alert('กรุณาเพิ่มข้อมูล รูปถ่ายประจำตัวนักกีฬา ที่ข้อมูลส่วนตัว');
+        } else {
+          if (user.weight <= 0) {
+            alert('กรุณาเพิ่มข้อมูล น้ำหนัก ที่ข้อมูลส่วนตัว');
+          } else {
+            if (user.height <= 0) {
+              alert('กรุณาเพิ่มข้อมูล ส่วนสูง ที่ข้อมูลส่วนตัว');
+            } else {
+              if (!user.gender) {
+                alert('กรุณาเพิ่มข้อมูล เพศ ที่ข้อมูลส่วนตัว');
+              } else {
+                // call service
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
   async getSports() {
     try {
       const res: any = await this.api.get('/sports');
