@@ -113,6 +113,7 @@ export class ProfileComponent implements OnInit {
             }
             const res: any = await this.api.put('/user/' + this.data._id, this.data);
             window.localStorage.setItem('user', JSON.stringify(res.data));
+            alert('แก้ไขข้อมูลส่วนตัวสำเร็จ');
         } catch (error) {
             console.log(error);
         }
